@@ -5,6 +5,7 @@ import org.apache.mina.core.session.IoSession;
 
 class TimeClientHandler extends IoHandlerAdapter {
     public TimeClientHandler() {
+        //原来如此
     }
 
     @Override
