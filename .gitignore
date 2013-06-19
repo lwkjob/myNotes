@@ -1,12 +1,9 @@
-/target
 /.settings
 /target
-.classpath
-.project
+*.classpath
+*.project
 # Package Files #
 *.jar
 *.war
 *.ear
-README.md
-org.eclipse.jdt.core.prefs
-org.eclipse.m2e.core.prefs
+
