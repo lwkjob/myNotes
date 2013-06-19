@@ -1,4 +1,4 @@
-package service;
+package com.lwk.mina.server;
 
 import java.util.Date;
 import org.apache.mina.core.service.IoHandlerAdapter;

@@ -1,4 +1,4 @@
-package client;
+package com.lwk.mina.client;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
