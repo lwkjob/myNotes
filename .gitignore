@@ -1,1 +1,9 @@
 /target
+/.settings
+/target
+.classpath
+.project
+README.md
+*.war
+*.jar
+*.class
