@@ -3,7 +3,10 @@
 /target
 .classpath
 .project
-README.md
-*.war
+# Package Files #
 *.jar
-*.class
+*.war
+*.ear
+README.md
+org.eclipse.jdt.core.prefs
+org.eclipse.m2e.core.prefs
