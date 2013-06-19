@@ -6,7 +6,7 @@ class Producer implements Runnable {
 	public Producer(Q q) {
 		this.q = q;
 	}
-
+ 
 	@Override
 	public void run() {
 		int i = 0;
