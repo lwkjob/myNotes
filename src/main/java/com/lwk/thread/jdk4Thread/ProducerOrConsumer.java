@@ -1,4 +1,4 @@
-package com.lwk.thread;
+package com.lwk.thread.jdk4Thread;
 
 class Producer implements Runnable {
 	Q q;
