@@ -2,14 +2,14 @@ package pattern.bridge;
 
 public class Client {
 	public static void main(String[] args) {
-		Bridge bridge=new MyBridge();
+		Bridge bridge=new BridgeImpl();
 		
 		Diverable mysql=new MysqlDirver();
-		bridge.setBridge(mysql);
-		bridge.method();
+		bridge.setDriver(mysql);
+		bridge.doDrivermethod();
 		
 		Diverable oracle=new OracleDirver();
-		bridge.setBridge(oracle);
-		bridge.method();
+		bridge.setDriver(oracle);
+		bridge.doDrivermethod();
 	}
 }

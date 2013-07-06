@@ -2,21 +2,20 @@ package pattern.bridge;
 
 /**
  * @author lwk 组织者(桥)
+ * 
+ * 给用户调用，没看懂为什么要这个是抽象类
  */
-public class Bridge {
+public abstract  class Bridge {
 	
-	private Diverable bridge;
+	private Diverable driver;
 
-	public void method() {
-		bridge.bridgeMethod();
+	public abstract void doDrivermethod() ;
+
+	public Diverable getDriver() {
+		return driver;
 	}
 
-	public Diverable getBridge() {
-		return bridge;
+	public void setDriver(Diverable driver) {
+		this.driver = driver;
 	}
-
-	public void setBridge(Diverable bridge) {
-		this.bridge = bridge;
-	}
-	
 }
