@@ -9,14 +9,14 @@ package pattern.singleton;
  * @author lwk
  * 饱汉式单例
  */
-public class SengletonFully {
+public class SingletonFully {
 
-    private static SengletonFully singleton = new SengletonFully();
+    private static SingletonFully singleton = new SingletonFully();
 
-    private SengletonFully() {
+    private SingletonFully() {
     };
 
-    public static SengletonFully getSingleton() {
+    public static SingletonFully getSingleton() {
         return singleton;
     }
 }
