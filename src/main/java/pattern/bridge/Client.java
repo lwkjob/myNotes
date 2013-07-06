@@ -1,6 +1,6 @@
 package pattern.bridge;
 
-public class BridgeClient {
+public class Client {
 	public static void main(String[] args) {
 		Bridge bridge=new MyBridge();
 		
