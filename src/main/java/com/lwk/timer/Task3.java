@@ -10,8 +10,7 @@ public class Task3 {
         System.out.println("Hello !!");
       }
     };
-    ScheduledExecutorService service = Executors
-                    .newSingleThreadScheduledExecutor();
+    ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
     service.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
   }
 }

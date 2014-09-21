@@ -11,10 +11,9 @@ public class Task2 {
       }
     };
     Timer timer = new Timer();
-    long delay = 0;
-    long intevalPeriod = 1 * 1000;
+    long delay = 0;//开始时间
+    long intevalPeriod = 1 * 1000;//间隔时间
     // schedules the task to be run in an interval
-    timer.scheduleAtFixedRate(task, delay,
-                                intevalPeriod);
+    timer.scheduleAtFixedRate(task, delay,intevalPeriod);
   } // end of main
 }

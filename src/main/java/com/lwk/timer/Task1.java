@@ -1,4 +1,8 @@
 package com.lwk.timer;
+/**
+ * @author lwkjob
+ * 用线程模拟定时任务
+ */
 public class Task1 {
 public static void main(String[] args) {
   // run in a second
