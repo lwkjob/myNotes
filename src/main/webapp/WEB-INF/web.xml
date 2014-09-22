@@ -10,12 +10,11 @@
 		<welcome-file>index.shtml</welcome-file>
 	</welcome-file-list>
 	<servlet>
-		<servlet-name>jcaptcha</servlet-name>
-		<servlet-class>yanzm.ImageCaptchaServlet</servlet-class>
-		<load-on-startup>0</load-on-startup>
+		<servlet-name>yzm</servlet-name>
+		<servlet-class>yanzm.custom.YzmServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>jcaptcha</servlet-name>
-		<url-pattern>/jcaptcha</url-pattern>
+		<servlet-name>yzm</servlet-name>
+		<url-pattern>/yzm</url-pattern>
 	</servlet-mapping> 
 </web-app>
