@@ -13,8 +13,30 @@
 		<servlet-name>yzm</servlet-name>
 		<servlet-class>yanzm.custom.YzmServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>TestCookie</display-name>
+		<servlet-name>TestCookie</servlet-name>
+		<servlet-class>com.lwk.web.cookie.TestCookie</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>GetCookie</display-name>
+		<servlet-name>GetCookie</servlet-name>
+		<servlet-class>com.lwk.web.cookie.GetCookie</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>yzm</servlet-name>
 		<url-pattern>/yzm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TestCookie</servlet-name>
+		<url-pattern>/TestCookie</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetCookie</servlet-name>
+		<url-pattern>/GetCookie</url-pattern>
 	</servlet-mapping> 
 </web-app>
