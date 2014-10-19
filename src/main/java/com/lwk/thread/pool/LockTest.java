@@ -1,4 +1,4 @@
-package com.lwk.thread.jdk5Thread;
+package com.lwk.thread.pool;
 
 
 import java.util.concurrent.locks.Lock;
@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockTest {
 
 	/**
-	 * @param args
+	 * @param args 
 	 */
 	public static void main(String[] args) {
 		new LockTest().init();

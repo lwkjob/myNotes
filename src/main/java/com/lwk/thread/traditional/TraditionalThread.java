@@ -1,4 +1,4 @@
-package com.lwk.thread.pool;
+package com.lwk.thread.traditional;
 
 import java.util.Date;
 import java.util.Timer;

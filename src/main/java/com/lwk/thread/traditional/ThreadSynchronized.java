@@ -1,4 +1,4 @@
-package com.lwk.thread.jdk4Thread;
+package com.lwk.thread.traditional;
 
 public class ThreadSynchronized {
 	public static void main(String[] args) throws InterruptedException {

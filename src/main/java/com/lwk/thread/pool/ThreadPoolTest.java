@@ -1,4 +1,4 @@
-package com.lwk.thread.jdk5Thread;
+package com.lwk.thread.pool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

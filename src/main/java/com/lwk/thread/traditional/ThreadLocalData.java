@@ -1,4 +1,4 @@
-package com.lwk.thread.jdk4Thread;
+package com.lwk.thread.traditional;
 
 import java.util.Date;
 

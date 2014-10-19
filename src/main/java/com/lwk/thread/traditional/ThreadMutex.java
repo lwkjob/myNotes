@@ -1,4 +1,4 @@
-package com.lwk.thread.pool;
+package com.lwk.thread.traditional;
 
 /**
  * 线程互斥	synchronized

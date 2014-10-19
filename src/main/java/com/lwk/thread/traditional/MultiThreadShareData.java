@@ -1,4 +1,4 @@
-package com.lwk.thread.jdk4Thread;
+package com.lwk.thread.traditional;
 public class MultiThreadShareData {
 
 	private static ShareData1 data1 = new ShareData1();
