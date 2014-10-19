@@ -13,6 +13,7 @@ public class ThreadPoolTest {
 		//		线程池
 		ExecutorService threadPool=Executors.newFixedThreadPool(10);
 		ExecutorService cachedThreadpool=Executors.newCachedThreadPool();
+		//
 		ExecutorService threadpoolOne=Executors.newSingleThreadExecutor();
 		for (int i = 1; i < 8; i++) {
 			final int now=i;
@@ -38,5 +39,14 @@ public class ThreadPoolTest {
 				System.out.println("sss");
 			}
 		}, 2, 3, TimeUnit.SECONDS);
+		
+		//定时任务
+		Executors.newScheduledThreadPool(3).schedule(new Runnable() {
+			
+			@Override
+			public void run() {
+				System.out.println("sss");
+			}
+		}, 2, TimeUnit.SECONDS );
 	}
 }

@@ -1,12 +1,20 @@
-package com.lwk.thread.pool;
+package com.lwk.thread.pool.locks;
 
 
-import java.util.Random;
+import java.util.Date;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * 读写锁
+ * 读锁与读锁不互斥，写锁与写锁互斥，写锁与读锁互斥
+ * @author lwkjob
+ *
+ */
 public class ReadWriteLockTest {
+	
 	public static void main(String[] args) {
+		
 		final Queue3 q3 = new Queue3();
 		for(int i=0;i<3;i++)
 		{
@@ -22,7 +30,7 @@ public class ReadWriteLockTest {
 			new Thread(){
 				public void run(){
 					while(true){
-						q3.put(new Random().nextInt(10000));
+						q3.put(new Date().getTime());
 					}
 				}			
 				
@@ -39,9 +47,9 @@ class Queue3{
 	public void get(){
 		rwl.readLock().lock();
 		try {
-			System.out.println(Thread.currentThread().getName() + " be ready to read data!");
-			Thread.sleep((long)(Math.random()*1000));
-			System.out.println(Thread.currentThread().getName() + "have read data :" + data);			
+			System.out.println(Thread.currentThread().getName() + " 准备读");
+			Thread.sleep(100);
+			System.out.println(Thread.currentThread().getName() + "读完了" + data);			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}finally{
@@ -53,10 +61,10 @@ class Queue3{
 
 		rwl.writeLock().lock();
 		try {
-			System.out.println(Thread.currentThread().getName() + " be ready to write data!");					
-			Thread.sleep((long)(Math.random()*1000));
+//			System.out.println(Thread.currentThread().getName() + " 准备写");					
+			Thread.sleep(10000);
 			this.data = data;		
-			System.out.println(Thread.currentThread().getName() + " have write data: " + data);					
+//			System.out.println(Thread.currentThread().getName() + " 写完了 " + data);					
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}finally{

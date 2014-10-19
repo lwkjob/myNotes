@@ -1,10 +1,15 @@
-package com.lwk.thread.pool;
+package com.lwk.thread.pool.locks;
 
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 
+/**
+ * 用lock控制线程互斥
+ * @author lwkjob
+ *
+ */
 public class LockTest {
 
 	/**
@@ -49,6 +54,8 @@ public class LockTest {
 	}
 
 	static class Outputer{
+		//开始上锁 
+//		Reentrant可重入的
 		Lock lock = new ReentrantLock();
 		public void output(String name){
 			int len = name.length();
@@ -62,21 +69,5 @@ public class LockTest {
 				lock.unlock();
 			}
 		}
-		
-		public synchronized void output2(String name){
-			int len = name.length();
-			for(int i=0;i<len;i++){
-					System.out.print(name.charAt(i));
-			}
-			System.out.println();
-		}
-		
-		public static synchronized void output3(String name){
-			int len = name.length();
-			for(int i=0;i<len;i++){
-					System.out.print(name.charAt(i));
-			}
-			System.out.println();
-		}	
 	}
 }
