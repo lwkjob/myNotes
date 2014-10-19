@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-
-	<display-name>MyGrowth</display-name>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>index.shtml</welcome-file>
-	</welcome-file-list>
-	<servlet>
-		<servlet-name>jcaptcha</servlet-name>
-		<servlet-class>yanzm.ImageCaptchaServlet</servlet-class>
-		<load-on-startup>0</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>jcaptcha</servlet-name>
-		<url-pattern>/jcaptcha</url-pattern>
-	</servlet-mapping> 
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.4">
+  <display-name>MyGrowth</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.shtml</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>jcaptcha</servlet-name>
+    <servlet-class>yanzm.ImageCaptchaServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>jcaptcha</servlet-name>
+    <url-pattern>/jcaptcha</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Yzm</display-name>
+    <servlet-name>Yzm</servlet-name>
+    <servlet-class>yanzm.custom.Yzm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Yzm</servlet-name>
+    <url-pattern>/Yzm</url-pattern>
+  </servlet-mapping>
 </web-app>
