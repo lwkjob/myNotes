@@ -1,9 +1,9 @@
-package com.lwk.thread.jdk4Thread;
+package com.lwk.thread.pool;
 
 /**
  * @author lwk
  * 线程通信communication 
- * 子线程循环5次，然后主线程循环7次  如此一次循环3次
+ * 子线程循环5次，然后主线程循环2次  如此一次循环3次
  */
 public class TraditionalCommuniction {
 	public static void main(String[] args) {
@@ -27,23 +27,23 @@ public class TraditionalCommuniction {
 class Business{
 	private boolean flag=true;
 	public synchronized void sub(){
-		if(!flag)
+		while(!flag)//		用while可以防止假唤醒
 			waits();
 		for (int j = 1; j <= 5; j++) {
 			System.out.println("sub 当前位置" + j);
 		}
 		flag=false;
-		notify();
+		notify(); //通知其他等待的线程，目前只有main
 	}
 	
 	public  synchronized void main(){
-		if(flag)
+		while(flag)//		用while可以防止假唤醒
 			waits();
 		for (int j = 1; j <= 7; j++) {
 			System.out.println("main 当前位置" + j);
 		}
 		flag=true;
-		notify();
+		notify();//通知其他等待的线程，目前只有sub
 	}
 	
 	//等待
