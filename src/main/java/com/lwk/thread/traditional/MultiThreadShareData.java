@@ -1,72 +1,45 @@
 package com.lwk.thread.traditional;
+/**
+ * 
+ * 多个线程数据共享,把数据封装到Runnable对象里面实现共享
+ * @author lwkjob
+ *
+ */
 public class MultiThreadShareData {
 
-	private static ShareData1 data1 = new ShareData1();
-	
 	public static void main(String[] args) {
-		ShareData1 data2 = new ShareData1();
-		new Thread(new MyRunnable1(data2)).start();
-		new Thread(new MyRunnable2(data2)).start();
-		
-		final ShareData1 data1 = new ShareData1();
-		new Thread(new Runnable(){
-			@Override
-			public void run() {
-				data1.decrement();
-				
-			}
-		}).start();
-		new Thread(new Runnable(){
-			@Override
-			public void run() {
-				data1.increment();
-				
-			}
-		}).start();
-
+		ShareData1 data1 = new ShareData1();
+		new Thread(data1).start();
+		new Thread(data1).start();
 	}
 
 }
 	
-	class MyRunnable1 implements Runnable{
-		private ShareData1 data1;
-		public MyRunnable1(ShareData1 data1){
-			this.data1 = data1;
-		}
-		public void run() {
-			data1.decrement();
-			
-		}
-	}
-	
-	class MyRunnable2 implements Runnable{
-		private ShareData1 data1;
-		public MyRunnable2(ShareData1 data1){
-			this.data1 = data1;
-		}
-		public void run() {
-			data1.increment();
-		}
-	}
 
-	class ShareData1 
-	/*implements Runnable*/{
-		/*		private int count = 100;
+	/**
+	 * 两个线程对同一个数据操作，把数据封装到Runnable对象里面实现共享
+	 * @author lwkjob
+	 *
+	 */
+	class ShareData1 implements Runnable{
+		private int count = 100;
 		@Override
 		public void run() {
-			// TODO Auto-generated method stub
-			while(true){
-				count--;
-			}
-		}*/
-		
-		
-		private int j = 0;
+				while(count>0){
+					decrement();
+				}
+		}
 		public synchronized void increment(){
-			j++;
+			count++;
 		}
 		
 		public synchronized void decrement(){
-			j--;
+			count--;
+			System.out.println(Thread.currentThread().getName()+"count"+count);
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
