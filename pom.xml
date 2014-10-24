@@ -8,11 +8,11 @@
 
 
 	<dependencies>
-	<dependency>
-    <groupId>org.jasig.cas.client</groupId>
-    <artifactId>cas-client-core</artifactId>
-    <version>3.1.12</version>
-</dependency>
+		<dependency>
+			<groupId>org.jasig.cas.client</groupId>
+			<artifactId>cas-client-core</artifactId>
+			<version>3.1.12</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.mina</groupId>
 			<artifactId>mina-core</artifactId>
@@ -61,11 +61,22 @@
 		</dependency>
 		<!-- 验证码 -->
 		<dependency>
-	<groupId>com.octo.captcha</groupId>
-	<artifactId>jcaptcha-all</artifactId>
-	<version>1.0-RC6</version>
-</dependency>
-		
+			<groupId>com.octo.captcha</groupId>
+			<artifactId>jcaptcha-all</artifactId>
+			<version>1.0-RC6</version>
+		</dependency>
+		<!-- jvm字节码增强 -->
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.18.1-GA</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
