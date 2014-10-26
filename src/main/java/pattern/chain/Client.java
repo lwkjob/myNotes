@@ -1,5 +1,5 @@
 package pattern.chain;
-public class Test {  
+public class Client {  
   
     public static void main(String[] args) {  
         MyHandler h1 = new MyHandler("h1");  
@@ -8,7 +8,7 @@ public class Test {
   
         h1.setHandler(h2);  
         h2.setHandler(h3);  
-        h1.operator();  
+        h1.doFilter();  
         
     }  
 }  

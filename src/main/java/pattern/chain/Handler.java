@@ -1,4 +1,9 @@
 package pattern.chain;
+
+/**
+ * @author lwkjob
+ *
+ */
 public interface Handler {  
-    public void operator();  
+    public void doFilter();  
 }  
