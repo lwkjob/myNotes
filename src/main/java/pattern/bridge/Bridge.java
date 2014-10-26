@@ -3,7 +3,7 @@ package pattern.bridge;
 /**
  * @author lwk 组织者(桥)
  * 
- * 给用户调用，没看懂为什么要这个是抽象类
+ * 这个类规定了客户需要的方法，并做了部分实现，因为他不能直接实例化所以他还需要一个继承者
  */
 public abstract  class Bridge {
 	
