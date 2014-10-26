@@ -1,7 +1,8 @@
 package pattern.composite;
 
 public abstract class Market {
-	String name;
+	
+	String name;//组合着的名字
 
 	public abstract void add(Market m);
 
