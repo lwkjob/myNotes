@@ -11,8 +11,8 @@ import javassist.NotFoundException;
 
 
 /**
- * 
- * -javaagent:F:\MyGrowth\target\classes\lwk.jar
+ * 运行
+ * java -javaagent:F:\MyGrowth\target\classes\lwk.jar RedeineClassMain
  * @author lwkjob
  *
  */

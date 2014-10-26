@@ -6,6 +6,7 @@ import java.lang.instrument.UnmodifiableClassException;
 
 /**
  * 运行是注册
+ * MANIFEST.MF文件
 Manifest-Version: 1.0
 Created-By: 1.6.0_23 (Sun Microsystems Inc.)
 Premain-Class: com.lwk.jvm.classloader.aop.ssist.redefineclass.InstForRedefineClass
