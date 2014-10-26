@@ -1,4 +1,11 @@
-package pattern.command.impl;
+package pattern.command;
+
+
+/**
+ * 具体命令(ConcreteCommand)角色
+ * @author lwkjob
+ *
+ */
 public class PlayCommand implements Command {
 
     private AudioPlayer myAudio;

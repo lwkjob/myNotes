@@ -1,7 +1,11 @@
-package pattern.command.macro;
+package pattern.command;
 
-import pattern.command.impl.Command;
 
+/**
+ * 命令管理
+ * @author lwkjob
+ *
+ */
 public interface MacroCommand extends Command {
     /**
      * 宏命令聚集的管理方法

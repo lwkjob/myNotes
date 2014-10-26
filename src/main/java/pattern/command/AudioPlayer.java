@@ -1,4 +1,10 @@
-package pattern.command.impl;
+package pattern.command;
+/**
+ * 
+ * 真正的命令执行着，接收者(Receiver)角色
+ * @author lwkjob
+ *
+ */
 public class AudioPlayer {
     
     public void play(){
