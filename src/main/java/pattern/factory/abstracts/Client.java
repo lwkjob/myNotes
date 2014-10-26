@@ -10,18 +10,21 @@ import pattern.factory.simple.Sender;
 /**
  * @author lwk
  * 
- *      抽象工厂有问题，没搞懂
+ *  抽象工厂有问题
  *      
  */
-public class client {
+public class Client {
     public static void main(String[] args) {
+    	//搞出个工厂
         Provider mailFactory = new SendMailFactory();
         Provider phoneFactory = new SendPhoneFactory();
-
+        
+        //生产对象
         Sender sd = mailFactory.getSender();
 
         Sender sd2 = phoneFactory.getSender();
-
+        
+        //使用对象
         sd.send();
         sd2.send();
     }

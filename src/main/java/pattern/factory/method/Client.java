@@ -5,7 +5,12 @@
  */
 package pattern.factory.method;
 
-public class client {
+/**
+ * 大工厂 根据不同的方法创建不同的对象
+ * @author lwkjob
+ *
+ */
+public class Client {
     public static void main(String[] args) {
         MethodSenderFactory factory = new MethodSenderFactory();
         factory.getMailSender().send();

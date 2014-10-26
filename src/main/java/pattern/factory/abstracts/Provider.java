@@ -7,6 +7,12 @@ package pattern.factory.abstracts;
 
 import pattern.factory.simple.Sender;
 
+/**
+ * 
+ * 供应商
+ * @author lwkjob
+ *
+ */
 public interface Provider {
     Sender getSender();
 }
