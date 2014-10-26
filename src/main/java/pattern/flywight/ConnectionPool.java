@@ -5,6 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Vector;
 
+/**
+ * 享元模式
+ * 在开发过程当中，有时候对于同一个或很多个大同小异的对象
+ * ，我们不得不各自创建一个对象来使用它们。这种情况下
+ * ，我们无意中就会造成很大的存储空间的浪费。
+ * Flywight就可以很好的解决这个问题
+ * @author lwkjob
+ *
+ */
 public class ConnectionPool {  
       
     private Vector<Connection> pool;  
