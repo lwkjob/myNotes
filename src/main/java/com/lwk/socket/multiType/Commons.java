@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import sun.reflect.Reflection;
+
 import com.lwk.socket.multiType.client.component.CharsetByteRelative;
 import com.lwk.socket.multiType.client.sender.BFileSender;
 import com.lwk.socket.multiType.client.sender.DefaultSender;
@@ -86,8 +88,9 @@ public class Commons {
 	}
 	
 	public static void logInfo(String message) {
+		Class <?>clazz = Reflection.getCallerClass(1);
 		String date = DATE_FORMAT_OBJECT.format(Calendar.getInstance().getTime());
-		println(date + " [] INFO  - " + message);
+		println(date + " ["+clazz.getName()+"] INFO  - " + message);
 	}
 	
 	public static void closeStream(Closeable closeable) {

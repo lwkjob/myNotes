@@ -21,6 +21,8 @@ public class LockTest {
 	
 	private void init(){
 		final Outputer outputer = new Outputer();
+		
+		//打印字符串
 		new Thread(new Runnable(){
 			@Override
 			public void run() {
@@ -36,6 +38,7 @@ public class LockTest {
 			}
 		}).start();
 		
+		//打印字符串
 		new Thread(new Runnable(){
 			@Override
 			public void run() {
