@@ -10,11 +10,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadPoolTest {
 	public static void main(String[] args) {
-		//		线程池
+		//		固定大小线程池
 		ExecutorService threadPool=Executors.newFixedThreadPool(10);
-		ExecutorService cachedThreadpool=Executors.newCachedThreadPool();
-		//
-		ExecutorService threadpoolOne=Executors.newSingleThreadExecutor();
+		
+//		ExecutorService cachedThreadpool=Executors.newCachedThreadPool();
+//		//
+//		ExecutorService threadpoolOne=Executors.newSingleThreadExecutor();
+		
 		for (int i = 1; i < 8; i++) {
 			final int now=i;
 			threadPool.execute(new Runnable() {
