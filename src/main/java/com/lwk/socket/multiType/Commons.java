@@ -88,7 +88,7 @@ public class Commons {
 	}
 	
 	public static void logInfo(String message) {
-		Class <?>clazz = Reflection.getCallerClass(1);
+		Class <?>clazz = Reflection.getCallerClass(2);
 		String date = DATE_FORMAT_OBJECT.format(Calendar.getInstance().getTime());
 		println(date + " ["+clazz.getName()+"] INFO  - " + message);
 	}
