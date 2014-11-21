@@ -45,4 +45,20 @@
 		<servlet-name>GetCookie</servlet-name>
 		<url-pattern>/GetCookie</url-pattern>
 	</servlet-mapping> 
+	
+		<!-- Spring mvc -->
+	<servlet>
+		<servlet-name>mvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:conf/spring/spring-config-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mvc</servlet-name>
+		<url-pattern>*.shtml</url-pattern>
+	</servlet-mapping>
+	<!-- Spring mvc  END--> 
 </web-app>
