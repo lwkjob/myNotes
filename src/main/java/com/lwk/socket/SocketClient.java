@@ -3,6 +3,11 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
+/**
+ * 输入流和输出流 分开任务
+ * @author lwkjob
+ *
+ */
 public class SocketClient {
 
 	public static void main(String []args)  {

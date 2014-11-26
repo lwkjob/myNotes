@@ -7,6 +7,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
+/**
+ * 
+ * 输入流和输出流 分开任务
+ * @author lwkjob
+ *
+ */
 public class SocketWrapper {
 
 	private Socket socket;

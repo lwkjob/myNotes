@@ -2,6 +2,12 @@ package com.lwk.socket;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+/**
+ * 
+ * 输入流和输出流 分开任务
+ * @author lwkjob
+ *
+ */
 public class SocketServer {
 
 	public static void main(String []args) throws IOException {
