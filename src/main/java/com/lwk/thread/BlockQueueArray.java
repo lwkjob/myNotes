@@ -10,7 +10,7 @@ import java.util.concurrent.BlockingQueue;
  */
 public class BlockQueueArray {
 	public static void main(String[] args) {
-		//创建一个可以放三个线程的阻塞队列
+		//创建一个可以放三个数据的阻塞队列
 		final BlockingQueue<String> queue=new ArrayBlockingQueue<String>(3);
 		for (int i = 0; i < 2; i++) {
 			//起2个线程方数据往队列里面放数据
@@ -29,7 +29,7 @@ public class BlockQueueArray {
 				};
 			}.start();
 		}
-		//开一个线程去数据
+		//开一个线程取数据
 		new Thread(){
 			public void run() {
 				while(true){
