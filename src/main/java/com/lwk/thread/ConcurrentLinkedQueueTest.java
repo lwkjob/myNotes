@@ -21,8 +21,9 @@ public class ConcurrentLinkedQueueTest {
 		Runnable getRun= new Runnable() {
 			public void run() {
 				while(true){
-					if(mm.poll()!=null){
-						System.out.println("消费	"+mm.poll());
+					String mstr=mm.poll();
+					if(mstr!=null){
+						System.out.println("消费	"+mstr);
 					}
 				}
 			}
