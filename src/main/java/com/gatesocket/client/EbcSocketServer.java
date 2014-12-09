@@ -1,4 +1,4 @@
-package com.capinfo.payment.ebcross;
+package com.gatesocket.client;
 
 import com.gatesocket.channel.stream.SimpleStreamParser;
 import com.gatesocket.channel.transport.socket.server.NioSocketChannelServerFactory;

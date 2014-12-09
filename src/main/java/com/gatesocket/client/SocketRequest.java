@@ -1,5 +1,6 @@
-package com.capinfo.payment.ebcross;
+package com.gatesocket.client;
 
+import com.capinfo.payment.ebcross.EbcParameter;
 import com.gatesocket.Request;
 import com.gatesocket.Response;
 import com.gatesocket.channel.ChannelTemplate;
@@ -16,7 +17,7 @@ public class SocketRequest {
 	protected static ChannelTemplate channelTemplate;
 	/**
 	 * 
-	 * 发送报文
+	 * 发�?报文
 	 * 
 	 * 
 	 */
