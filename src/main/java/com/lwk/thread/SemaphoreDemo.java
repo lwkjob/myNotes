@@ -1,8 +1,12 @@
 package com.lwk.thread;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 
@@ -11,27 +15,81 @@ import java.util.concurrent.Semaphore;
  *
  */
 public class SemaphoreDemo {
-		public static void main(String[] args) {
+		public static void main(String[] args) throws InterruptedException {
+			
+			final Pool pool=new Pool();
+			
 			ExecutorService executorService=Executors.newCachedThreadPool();
-			//初始化3个信号灯，也就是最多只有3个线程同时执行
-			final Semaphore semaphore=new Semaphore(3);
+			
 			for (int i = 0; i < 10; i++) {
 				Runnable runnable=new Runnable() {
 					@Override
 					public void run() {
-						try {
-							semaphore.acquire();//拿到灯
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						System.out.println("开始执行。。。。。");
-						System.out.println("释放前有"+Thread.currentThread().getName()+"  "+(3-semaphore.availablePermits()));
-						semaphore.release();//释放灯
-						System.out.println("后有"+(3-semaphore.availablePermits()));
+						String mm=pool.getR();
+						System.out.println(Thread.currentThread().getName()+" 我拿到了开始干活："+mm);
+						//模拟业务处理时间
+						sleep();
+						System.out.println(Thread.currentThread().getName()+" 干完了释放："+mm);
+						pool.putR(mm);
 					}
 				};
 				//把执行业务装进线程池里面
 				executorService.execute(runnable);
+			}
+		}
+		
+		public static void sleep(){
+			try {
+				//睡觉
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		public static class Pool{
+			//资源池
+			ArrayList<String> pool=null;
+			//通行证
+			Semaphore pass=null;
+			//锁(锁)
+			Lock lock=new ReentrantLock();
+			
+			public Pool(){
+				
+				pool=new ArrayList<String>();
+				//初始化100个资源
+				for (int i = 0; i < 10; i++) {
+					pool.add(i+"资源");
+				}
+				//只有2个通行证
+				pass=new Semaphore(10);
+			}
+			
+			public String getR(){
+				try {
+					pass.acquire();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}//拿到通行证
+				lock.lock();
+				System.out.println(Thread.currentThread().getName()+" 拿到通行证");
+				String ret=pool.get(0);
+				pool.remove(0);
+				System.out.println(Thread.currentThread().getName()+" 拿走了 "+ret);
+				lock.unlock();
+				return ret;
+			}
+			
+			
+			public void putR(String r){
+				pass.release();//释放通行证
+				lock.lock();
+				System.out.println(Thread.currentThread().getName()+" 释放通行证");
+				pool.add(r);
+				System.out.println(Thread.currentThread().getName()+" 归还 "+r);
+				lock.unlock();
 			}
 		}
 }
