@@ -34,7 +34,7 @@ public class SemaphoreDemo {
 			};
 			// 把执行业务装进线程池里面
 			executorService.execute(runnable);
-		}
+			}
 	}
 
 	public static void sleep() {
@@ -45,56 +45,49 @@ public class SemaphoreDemo {
 			e.printStackTrace();
 		}
 	}
-
-	public static class Pool {
-		// 资源池
-		ArrayList<String> pool = null;
-		// 通行证
-		Semaphore pass = null;
-		// 锁(锁)
-		Lock lock = new ReentrantLock();
-
-		public Pool() {
-
-			pool = new ArrayList<String>();
-			// 初始化100个资源
-			for (int i = 0; i < 100; i++) {
-				pool.add(i + "资源");
-			}
-
-			// 只有10个通行证
-			pass = new Semaphore(10);
-		}
-
-		public String getR() {
-			try {
-				// 拿到通行证
-				pass.acquire();
-				lock.lock();
-				
-				System.out.println("还有" + pass.availablePermits());
-				System.out.println(pass.getQueueLength()+ "个人在排队中-----------");
-				
-			} catch (InterruptedException e) {
-				lock.unlock();
-				e.printStackTrace();
-			}
-			System.out.println(Thread.currentThread().getName()	+ " 拿到通行证-------------");
+		
+		public static class Pool{
+			//资源池
+			ArrayList<String> pool=null;
+			//通行证
+			Semaphore pass=null;
+			//锁(锁)
+			Lock lock=new ReentrantLock();
 			
-			String ret = pool.get(0);
-			pool.remove(0);
-			System.out.println(Thread.currentThread().getName() + " 拿走了 " + ret);
-			lock.unlock();
-			return ret;
+			public Pool(){
+				
+				pool=new ArrayList<String>();
+				//初始化100个资源
+				for (int i = 0; i < 100; i++) {
+					pool.add(i+"资源");
+				}
+				//只有2个通行证
+				pass=new Semaphore(10);
+			}
+			
+			public String getR(){
+				try {
+					pass.acquire();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}//拿到通行证
+				lock.lock();
+				System.out.println(Thread.currentThread().getName()+" 拿到通行证");
+				String ret=pool.get(0);
+				pool.remove(0);
+				System.out.println(Thread.currentThread().getName()+" 拿走了 "+ret);
+				lock.unlock();
+				return ret;
+			}
+			
+			
+			public void putR(String r){
+				pass.release();//释放通行证
+				lock.lock();
+				System.out.println(Thread.currentThread().getName()+" 释放通行证");
+				pool.add(r);
+				System.out.println(Thread.currentThread().getName()+" 归还 "+r);
+				lock.unlock();
+			}
 		}
-
-		public void putR(String r) {
-			pass.release();// 释放通行证
-			lock.lock();
-			System.out.println(Thread.currentThread().getName() + " 释放通行证++++++++++++++");
-			pool.add(r);
-			System.out.println(Thread.currentThread().getName() + " 归还 " + r);
-			lock.unlock();
-		}
-	}
 }
