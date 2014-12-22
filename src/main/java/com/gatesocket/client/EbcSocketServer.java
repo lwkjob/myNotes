@@ -8,7 +8,7 @@ public class EbcSocketServer
   public void start()
   {
     NioSocketChannelServerFactory niochannelserver = new NioSocketChannelServerFactory();
-    niochannelserver.setPort(6000);
+    niochannelserver.setPort(8009);
     niochannelserver.setPoolSize(20);
     niochannelserver.setStreamParser(new SimpleStreamParser());
     try {
@@ -19,4 +19,7 @@ public class EbcSocketServer
     }
     niochannelserver.start();
   }
+  public static void main(String[] args) {
+	new EbcSocketServer().start();
+}
 }

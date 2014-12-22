@@ -21,13 +21,14 @@ public class WriteLog
 		throws Exception
 	{
 		threadName = "";
-		HashMap hashMap = ParseXML.hashMap;
-		if (hashMap == null)
-			hashMap = ParseXML.getXmlConfig();
-		else
-		if (hashMap != null && hashMap.size() == 0)
-			hashMap = ParseXML.getXmlConfig();
-		fileName = (String)hashMap.get("logFileDir") + (String)hashMap.get("logFileName");
+//		HashMap hashMap = ParseXML.hashMap;
+//		if (hashMap == null)
+//			hashMap = ParseXML.getXmlConfig();
+//		else
+//		if (hashMap != null && hashMap.size() == 0)
+//			hashMap = ParseXML.getXmlConfig();
+		fileName = "f://lwkXU.log";
+//		fileName = (String)hashMap.get("logFileDir") + (String)hashMap.get("logFileName");
 	}
 
 	public static WriteLog instance()

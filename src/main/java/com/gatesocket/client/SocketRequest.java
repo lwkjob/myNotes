@@ -7,17 +7,12 @@ import com.gatesocket.channel.ChannelTemplate;
 import com.gatesocket.channel.stream.SimpleStreamParser;
 import com.gatesocket.channel.transport.socket.pool.SimpleSocketSenderChannelPool;
 
-/**
- * SOCKET通讯
- * 
- * @author 徐飞
- */
 public class SocketRequest {
 	protected static SimpleSocketSenderChannelPool kachannel;
 	protected static ChannelTemplate channelTemplate;
 	/**
 	 * 
-	 * 发�?报文
+	 * 发送报文
 	 * 
 	 * 
 	 */
@@ -25,8 +20,10 @@ public class SocketRequest {
 		if(null==kachannel ){
 			System.out.println("prepare to init kachannel!");
 			kachannel = new SimpleSocketSenderChannelPool();
-		    kachannel.setPort(EbcParameter.port);
-		    kachannel.setRemoteAddress(EbcParameter.ServerIp);
+//			kachannel.setPort(EbcParameter.port);
+//			kachannel.setRemoteAddress(EbcParameter.ServerIp);
+		    kachannel.setPort(8009);
+		    kachannel.setRemoteAddress("localhost");
 		    kachannel.setStreamParser(new SimpleStreamParser());
 		    kachannel.init();
 		}
@@ -41,6 +38,9 @@ public class SocketRequest {
 
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		int i=0;
+			SocketRequest.sendRequest("s");
+			i++;
 	}
 }
