@@ -28,7 +28,7 @@ public class Server {
 		
 			@Override    //异步回调读
 			public void completed(AsynchronousSocketChannel result, Void attachment) {
-				server.accept(null, this); // 接受下一个连接
+				
 				try {
 					 String now = new Date().toString();
 					 ByteBuffer buffer = encoder.encode(CharBuffer.wrap(now + "\r\n"));
@@ -41,6 +41,8 @@ public class Server {
 					result.close();
 				} catch (IOException | InterruptedException | ExecutionException e) {
 					e.printStackTrace();
+				}finally{
+					server.accept(null, this); // 接受下一个连接
 				}
 			}
 			
