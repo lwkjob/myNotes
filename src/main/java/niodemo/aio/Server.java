@@ -14,6 +14,15 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+/**
+ * 
+ * 
+ * BIO，同步阻塞式IO，简单理解：一个连接一个线程
+ * NIO，同步非阻塞IO，简单理解：一个请求一个线程(实际阻塞在系统底层,多路复用epoll)
+ * AIO，异步非阻塞IO，简单理解：全交给系统线程
+ * 
+ * @author lwkjob
+ */
 public class Server {
 	private static Charset charset = Charset.forName("US-ASCII");
     private static CharsetEncoder encoder = charset.newEncoder();
@@ -24,6 +33,7 @@ public class Server {
 		
 		final AsynchronousServerSocketChannel server = AsynchronousServerSocketChannel.open(group).bind(new InetSocketAddress("0.0.0.0", 8013));
 		
+		//异步非阻塞
 		server.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() {
 		
 			@Override    //异步回调读
