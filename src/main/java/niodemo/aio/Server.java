@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
  * @author lwkjob
  */
 public class Server {
+	//mac os ides test
 	private static Charset charset = Charset.forName("US-ASCII");
     private static CharsetEncoder encoder = charset.newEncoder();
 	
