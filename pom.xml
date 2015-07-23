@@ -1,133 +1,197 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.lwk</groupId>
-	<artifactId>MyGrowth</artifactId>
-	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.lwk</groupId>
+    <artifactId>MyGrowth</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
 
 
-	<dependencies>
-		<dependency>
-			<groupId>org.jasig.cas.client</groupId>
-			<artifactId>cas-client-core</artifactId>
-			<version>3.1.12</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.mina</groupId>
-			<artifactId>mina-core</artifactId>
-			<version>2.0.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-jdk14</artifactId>
-			<version>1.7.5</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.30</version>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.jasig.cas.client</groupId>
+            <artifactId>cas-client-core</artifactId>
+            <version>3.1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.mina</groupId>
+            <artifactId>mina-core</artifactId>
+            <version>2.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.30</version>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>3.1.1.RELEASE</version>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>3.1.1.RELEASE</version>
+        </dependency>
 
-		<!-- SERVLET -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
+        <!-- SERVLET -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
 
-		<!-- JSP -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<!-- 验证码 -->
-		<dependency>
-			<groupId>com.octo.captcha</groupId>
-			<artifactId>jcaptcha-all</artifactId>
-			<version>1.0-RC6</version>
-		</dependency>
-		<!-- jvm字节码增强 -->
-		<dependency>
-			<groupId>asm</groupId>
-			<artifactId>asm</artifactId>
-			<version>3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>3.18.1-GA</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.tools.btrace</groupId>
-			<artifactId>btrace-client</artifactId>
-			<version>1.2.3</version>
-		</dependency>
-<dependency>
-	<groupId>commons-dbutils</groupId>
-	<artifactId>commons-dbutils</artifactId>
-	<version>1.5</version>
-</dependency>
+        <!-- JSP -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <!-- 验证码 -->
+        <dependency>
+            <groupId>com.octo.captcha</groupId>
+            <artifactId>jcaptcha-all</artifactId>
+            <version>1.0-RC6</version>
+        </dependency>
+        <!-- jvm字节码增强 -->
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.18.1-GA</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.tools.btrace</groupId>
+            <artifactId>btrace-client</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>1.5</version>
+        </dependency>
 
-		<!-- mian -->
-		<dependency>
-			<groupId>org.apache.mina</groupId>
-			<artifactId>mina-core</artifactId>
-			<version>2.0.9</version>
-		</dependency>
-		<!-- jdom处理xml -->
-		<dependency>
-			<groupId>jdom</groupId>
-			<artifactId>jdom</artifactId>
-			<version>1.0</version>
-		</dependency>
-		
+        <!-- mian -->
+        <dependency>
+            <groupId>org.apache.mina</groupId>
+            <artifactId>mina-core</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+        <!-- jdom处理xml -->
+        <dependency>
+            <groupId>jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 
-	</dependencies>
-	<build>
-		<plugins>
-			<!-- jdk编译环境 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+                <!--   jdk编译环境  -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>7.6.14.v20131031</version>
+                <configuration>
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>8090</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                    <webAppConfig>
+                        <contextPath>/</contextPath>
+                    </webAppConfig>
+                    <stopPort>9999</stopPort>
+                    <stopKey>jetty</stopKey>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/profile/${package.env}</directory>
+                <!--<targetPath>/</targetPath>-->
+                <includes>
+                    <include>*.*</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>/**/*</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>localhost</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <package.env>localhost</package.env>
+                <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+                <jdbc.url><![CDATA[jdbc:mysql://10.28.4.11:3306/logistics-shipper?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>123456</jdbc.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <package.env>test</package.env>
+            </properties>
+        </profile>
+        <profile>
+            <id>product</id>
+            <properties>
+                <package.env>product</package.env>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
 
