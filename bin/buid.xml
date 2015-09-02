@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="antTest" default="restart-tomcat" basedir="../">
+	<property name="tomcat.home" value="D:\soft\apache-tomcat-7.0.53"/>
+	<property name="project.dir" value="D:\antSVNUpdate"/>
+	<property name="svnant.dir" value="D:\soft\apache-ant-1.9.4\svnant"/>
+	<property name="svnUrl" value="svn://192.168.10.166/payease/projects/P2P对账系统/code/Report"/>
+	
+	<path id="project.class.path">
+			<pathelement path="build/classes" />
+			<fileset dir="WebRoot/WEB-INF/lib">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="${tomcat.home}\lib">
+				<include name="**/*.jar" />
+			</fileset>
+	</path>
+	
+	<target name="clean">
+		<delete dir="build"/>
+	</target>
+	
+	<target name="compile" depends="updateSvn,clean">
+		<mkdir dir="build/classes"/>
+		<copy todir="build/classes">
+			<fileset dir="../src">
+				<include  name="**/*.properties"/>
+				<include name="**/*.xml"/>
+			</fileset>
+		</copy>
+		<javac srcdir="src" destdir="build/classes" encoding="UTF-8" fork="true">
+			<classpath refid="project.class.path"></classpath>
+		</javac>
+	</target>
+	
+	<target name="war" depends="compile">
+		<war destfile="build/Report.war" webxml="WebRoot/WEB-INF/web.xml">
+			<lib dir="WebRoot/WEB-INF/lib"/>
+			<classes dir="build/classes"/>
+			<fileset dir="WebRoot"/>
+		</war>
+	</target>
+	
+	<target name="publish" depends="war">
+		<copy todir="${tomcat.home}\webapps">
+			<fileset dir="build">
+					<include name="**/*.war"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="start-tomcat" depends="publish">   
+	    <echo message="start tomcat" />   
+		<exec executable="${tomcat.home}/bin/startup.bat" failonerror="true">
+			<env key="CATALINA_HOME" value="${tomcat.home}" />  
+	        <arg line="/c start ${tomcat.home}/bin/startup.bat"/> 
+		</exec>
+	</target>   
+	   
+	<target name="stop-tomcat">   
+		<echo>deploy clean axis service</echo> 
+		 <exec executable="${tomcat.home}/bin/shutdown.bat" failonerror="true">
+				<env key="CATALINA_HOME" value="${tomcat.home}" />  
+		        <arg line="/c start ${tomcat.home}/bin/startup.bat"/> 
+		</exec>
+	</target>
+	<target name="restart-tomcat" depends="stop-tomcat,start-tomcat">   
+		<echo>重启tomcat</echo> 
+	</target>
+	
+	 <taskdef name="svn" classname="org.tigris.subversion.svnant.SvnTask">  
+		  <classpath>  
+		  <fileset dir="${svnant.dir}" includes="*.jar" />   
+		  <filelist files="${project.dir}/*" />   
+		  </classpath>  
+	  </taskdef>  
+
+	  <echo>导出目录结构</echo>
+	
+	  <target name="updateSvn"  >  
+  		<svn svnkit="true"  javahl="false" username="liwenke" password="123456" failonerror="false"  > 
+  			<update recurse="true" dir="${project.dir}"   />
+  		</svn>
+	  	<!-- 
+	  		<checkout url="${svnUrl}" revision="HEAD" destPath="${project.dir}" failonerror="false"/>
+	  		<export  force="true" srcUrl="${svnUrl}" revision="HEAD" destPath="${project.dir}" /> 
+	  	-->  
+	  </target>
+</project>
