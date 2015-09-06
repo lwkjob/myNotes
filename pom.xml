@@ -151,6 +151,18 @@
                     <stopKey>jetty</stopKey>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <filters>
+                        <!--<filter>src/main/assembly/**</filter>-->
+                    </filters>
+                    <descriptors>
+                        <descriptor>src/resoruce/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                    <!--<encoding>utf8</encoding>-->
+                </configuration>
+            </plugin>
         </plugins>
         <resources>
             <resource>

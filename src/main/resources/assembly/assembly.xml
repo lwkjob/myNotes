@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+    <id>bin</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <baseDirectory>logistics-order-platform</baseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>README*</include>
+                <include>LICENSE*</include>
+                <include>NOTICE*</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>${project.basedir}/../../bin</directory>
+            <includes>
+                <include>start.sh</include>
+                <include>stop.sh</include>
+                <include>start-daemon.sh</include>
+            </includes>
+            <fileMode>0755</fileMode>
+            <outputDirectory>bin</outputDirectory>
+        </fileSet>
+
+        <fileSet>
+            <directory>src/main/profile/${package.env}</directory>
+            <outputDirectory>/conf</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+<!--        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>/conf</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>-->
+
+        <fileSet>
+            <directory>${project.basedir}/../../log</directory>
+            <outputDirectory>/log</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory>/libs</outputDirectory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+            <excludes>
+                <exclude>schedule-server-1.0.0-sources.jar</exclude>
+            </excludes>
+            <fileMode>0644</fileMode>
+        </fileSet>
+    </fileSets>
+
+    <dependencySets>
+        <dependencySet>
+            <scope>runtime</scope>
+            <outputDirectory>/libs</outputDirectory>
+            <useProjectArtifact>false</useProjectArtifact>
+            <unpack>false</unpack>
+        </dependencySet>
+    </dependencySets>
+</assembly>
