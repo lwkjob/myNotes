@@ -5,7 +5,7 @@ if [ $# -eq 0 ]; then
 fi
 
 cmd=$1
-nohupflat=$2
+nohupflag=$2
 cls='com.dili.dd.logistics.order.LogisticsOrderPlatform'
 if [ "$cmd" = "order" ] ; then
     cls='com.dili.dd.logistics.order.platform.LogisticsOrderPlatform'
@@ -43,8 +43,8 @@ export java_cls="$cls"
 echo "sh $cls.sh"
 
 export app_opts="-Xms128m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=128m -XX:CMSInitiatingOccupancyFraction=70 -DbaseHome=$way -Dfile.encoding=utf-8"
-if ["$nohupflat"=="nuhup"];then
-    nohup nice java -classpath "$clspath" $app_opts "$java_cls" > "$way/log/$cmd.log" 2>&1 < /dev/null &
+if ["$nohupflag"=="nuhup"];then
+    nohup nice java -classpath "$clspath" "$app_opts" "$java_cls" > "$way/log/$cmd.log" 2>&1 < /dev/null &
 else
-    java -Xms128m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=128m -XX:CMSInitiatingOccupancyFraction=70 -Dappname=$1 -DbaseHome=$way -Dfile.encoding=utf-8 -classpath "$clspath" "$java_cls"
+    java -classpath "$clspath" "$app_opts"  "$java_cls"
 fi

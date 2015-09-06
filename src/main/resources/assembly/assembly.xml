@@ -24,7 +24,6 @@
             <includes>
                 <include>start.sh</include>
                 <include>stop.sh</include>
-                <include>start-daemon.sh</include>
             </includes>
             <fileMode>0755</fileMode>
             <outputDirectory>bin</outputDirectory>
