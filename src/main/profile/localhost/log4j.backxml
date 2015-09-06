@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC
+        "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration>
+	<!-- 控制台 -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %l %x - %m%n" />
+		</layout>
+	</appender>
+	<!-- 文件输出 ${catalina.home}-->
+	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">  
+        <param name="File" value="${catalina.home}/reportlog/report.log" />  
+        <param name="Append" value="true" /> 
+        <param name="DatePattern" value="yyyy_MM_dd'.'" />  
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %l %x - %m%n" />  
+        </layout>
+    </appender>  
+	 
+    <!-- 错误文件输出 -->
+	<appender name="errorFILE" class="org.apache.log4j.DailyRollingFileAppender">  
+        <param name="File" value="${catalina.home}/reportlog/reportError.log" />  
+        <param name="Append" value="true" />  
+        <param name="DatePattern" value="yyyy_MM_dd'Error.log'" /> 
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %l %x - %m%n" />  
+        </layout>
+       <filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="WARN" />
+		</filter>
+    </appender>  
+    <logger name="org.springframework">
+        <level value="WARN" />
+    </logger>
+    
+    <logger name="org.hibernate"  addivity="false" >
+        <level value="WARN" />
+    </logger>
+    
+    <logger name="com.lwk.shell"  addivity="false" >
+        <level value="WARN" />
+         <appender-ref ref="FILE" />
+    </logger>
+    
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="errorFILE"/>
+		<appender-ref ref="FILE"/>
+	</root>
+</log4j:configuration>
