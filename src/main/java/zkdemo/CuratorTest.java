@@ -1,60 +1,38 @@
 package zkdemo;
 
-import org.apache.curator.CuratorZookeeperClient;
-import org.apache.curator.RetryLoop;
-import org.apache.curator.RetryPolicy;
-import org.apache.curator.RetrySleeper;
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
 
-import java.util.concurrent.Callable;
+import org.apache.commons.io.IOUtils;
+import org.apache.curator.framework.CuratorFramework;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Created by tc on 2015/11/24.
+ * Created by tc on 2015/12/9.
  */
 public class CuratorTest {
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Test
+    public void test1() throws Exception {
+
+        CuratorFramework client = CuratorUtil.createSimple("node1:2181,node2:2181,node3:2181,node4:2181");
+        client.start();
 
 
-public void retryLoop(){
-
-//    RetryLoop retryLoop = client.newRetryLoop();
-//    while ( retryLoop.shouldContinue() )
-//    {
-//        try
-//        {
-//            // perform your work
-//            ...
-//            // it's important to re-get the ZK instance as there may have been an error and the instance was re-created
-//            ZooKeeper      zk = client.getZookeeper();
-//
-//            retryLoop.markComplete();
-//        }
-//        catch ( Exception e )
-//        {
-//            retryLoop.takeException(e);
-//        }
-//    }
-}
-
-    public void retryLoop2(){
-
-        CuratorFramework curatorFramework= CuratorFrameworkFactory.newClient("", new RetryPolicy() {
-            @Override
-            public boolean allowRetry(int i, long l, RetrySleeper retrySleeper) {
-                return false;
-            }
-        });
 
 
-    //    RetryLoop.callWithRetry(client, new Callable()
-    //    {
-    //        @Override
-    //        public Void call() throws Exception
-    //        {
-    //            // do your work here - it will get retried if needed
-    //            return null;
-    //        }
-    //    });
+        byte[] data = client.getData().forPath("/test");
+
+        logger.info("拿到数据" + IOUtils.toString(data, "UTF-8"));
+
+        client.setData().forPath("/test", "nimei".getBytes());
+
+
+        client.close();
+
     }
+
+
 }
