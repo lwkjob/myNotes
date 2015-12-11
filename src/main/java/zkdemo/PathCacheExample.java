@@ -10,9 +10,10 @@ import org.apache.curator.framework.recipes.cache.PathChildrenCache;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
-import org.apache.curator.test.TestingServer;
+//import org.apache.curator.test.TestingServer;
+import org.apache.curator.utils.EnsurePath;
 import org.apache.curator.utils.ZKPaths;
-import discovery.ExampleServer;
+//import discovery.ExampleServer;
 import org.apache.zookeeper.KeeperException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -35,11 +36,10 @@ public class PathCacheExample
         PathChildrenCache   cache = null;
         try
         {
-            String hosts="node3:2181";
+            String hosts="localhost:2181";
 
-              client = CuratorUtil.createSimple(hosts);
+            client = CuratorUtil.createSimple(hosts);
              client.start();
-
             // in this example we will cache data. Notice that this is optional.
             cache = new PathChildrenCache(client, PATH, true);
             cache.start();
@@ -89,11 +89,10 @@ public class PathCacheExample
 
     private static void processCommands(CuratorFramework client, PathChildrenCache cache) throws Exception
     {
-        // More scaffolding that does a simple command line processor
-
+        //打印提示语句
         printHelp();
 
-        List<ExampleServer> servers = Lists.newArrayList();
+        //List<ExampleServer> servers = Lists.newArrayList();
         try
         {
             addListener(cache);
@@ -145,10 +144,10 @@ public class PathCacheExample
         }
         finally
         {
-            for ( ExampleServer server : servers )
-            {
-                CloseableUtils.closeQuietly(server);
-            }
+//            for ( ExampleServer server : servers )
+//            {
+//                CloseableUtils.closeQuietly(server);
+//            }
         }
     }
 
@@ -216,7 +215,7 @@ public class PathCacheExample
         }
         catch ( KeeperException.NoNodeException e )
         {
-            client.create().creatingParentContainersIfNeeded().forPath(path, bytes);
+//            client.create().creatingParentContainersIfNeeded().forPath(path, bytes);
         }
     }
 
