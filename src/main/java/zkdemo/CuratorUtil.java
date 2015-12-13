@@ -28,7 +28,7 @@ public class CuratorUtil {
      */
     public static CuratorFramework createSimple(String connectionString)
     {
-            //重试策略，第一次等待一秒，第二次重试等待2秒,第三次4秒
+            //指数补偿 重试策略，第一次等待一秒，第二次重试等待2秒,第三次4秒
         ExponentialBackoffRetry retryPolicy = new ExponentialBackoffRetry(1000, 3);
 
         return CuratorFrameworkFactory.newClient(connectionString, retryPolicy);
