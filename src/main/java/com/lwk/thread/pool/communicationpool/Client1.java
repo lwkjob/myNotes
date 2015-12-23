@@ -11,7 +11,8 @@ public class Client1 {
 		//
 		for (int i = 0; i < 100; i++) {
 			final int n = i;
-			Executors.newFixedThreadPool(100).execute(new Runnable() {
+			//20个线程发起请求100个请求
+			Executors.newFixedThreadPool(20).execute(new Runnable() {
 
 				@Override
 				public void run() {
@@ -27,8 +28,8 @@ public class Client1 {
 						out = new DataOutputStream(client.getOutputStream());
 						// 获取Socket的输入流，用来接收从服务端发送过来的数据
 						DataInputStream in = new DataInputStream(client.getInputStream());
-						out.writeUTF("你妹我是" + n);
-						System.out.println("收到信息"+in.readUTF());
+						out.writeUTF("你妹我是" + n+" "+"客户端线程："+Thread.currentThread().getName()+" ");
+						System.out.println("客户端线程："+Thread.currentThread().getName()+" 收到信息"+in.readUTF());
 						out.flush();
 
 					} catch (Exception e) {

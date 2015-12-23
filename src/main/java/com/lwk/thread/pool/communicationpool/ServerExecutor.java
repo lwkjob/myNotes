@@ -16,7 +16,7 @@ public class ServerExecutor {
 		ServerSocket server = new ServerSocket(20006);
 		Socket client = null;
 		//通过调用Executors类的静态方法，创建一个ExecutorService实例
-		//ExecutorService接口是Executor接口的子接口
+		//ExecutorService接口是Executor接口的子接口 开5个线程处理请求
 		Executor service = Executors.newFixedThreadPool(5);
 		int i=0;
 		while(true){

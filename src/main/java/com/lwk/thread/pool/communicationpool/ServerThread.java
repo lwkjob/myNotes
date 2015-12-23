@@ -19,13 +19,13 @@ public class ServerThread implements Runnable {
 	@Override
 	public void run() {
 		try {
-			Thread.sleep(100);
+			Thread.sleep(3000);
 			// 获取Socket的输出流，用来向客户端发送数据
 			DataOutputStream out = new DataOutputStream(client.getOutputStream());
 			// 获取Socket的输入流，用来接收从客户端发送过来的数据
 			DataInputStream in = new DataInputStream(client.getInputStream());
 					
-			System.out.println(in.readUTF()+ Thread.currentThread().getName());
+			System.out.println(in.readUTF()+ "服务端线程："+Thread.currentThread().getName());
 			
 			// 将接收到的字符串前面加上echo，发送到对应的客户端
 			out.writeUTF("bye");

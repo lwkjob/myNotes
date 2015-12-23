@@ -224,7 +224,7 @@ public class NioClient implements Runnable {
 
 	public static void main(String[] args) {
 		try {
-			NioClient client = new NioClient(InetAddress.getByName("www.google.com"), 80);
+			NioClient client = new NioClient(InetAddress.getByName("localhost"), 9090);
 			Thread t = new Thread(client);
 			t.setDaemon(true);
 			t.start();
