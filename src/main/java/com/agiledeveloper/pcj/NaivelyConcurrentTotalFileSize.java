@@ -22,9 +22,9 @@ import java.util.concurrent.TimeUnit;
 public class NaivelyConcurrentTotalFileSize {
 	
 	
-  private long getTotalSizeOfFilesInDir(
-    final ExecutorService service, final File file) 
-    throws InterruptedException, ExecutionException, TimeoutException {
+  private long getTotalSizeOfFilesInDir( final ExecutorService service, final File file)
+                          throws InterruptedException, ExecutionException, TimeoutException {
+
     if (file.isFile()) return file.length();
     
     long total = 0;
@@ -62,7 +62,7 @@ public class NaivelyConcurrentTotalFileSize {
   public static void main(final String[] args) 
     throws InterruptedException, ExecutionException, TimeoutException {
     final long start = System.nanoTime();
-    final long total = new NaivelyConcurrentTotalFileSize().getTotalSizeOfFile(args[0]);
+    final long total = new NaivelyConcurrentTotalFileSize().getTotalSizeOfFile("d://");
     final long end = System.nanoTime();
     System.out.println("Total Size: " + total);
     System.out.println("Time taken: " + (end - start)/1.0e9);

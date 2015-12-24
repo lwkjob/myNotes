@@ -60,18 +60,17 @@ public class ConcurrentTotalFileSize {
         final List<Future<SubDirectoriesAndSize>> partialResults = 
           new ArrayList<Future<SubDirectoriesAndSize>>();
         for(final File directory : directories) {
-          partialResults.add(
-            service.submit(new Callable<SubDirectoriesAndSize>() {
-            public SubDirectoriesAndSize call() {
-              return getTotalAndSubDirs(directory);
-            }
-          }));
+          partialResults.add( service.submit(new Callable<SubDirectoriesAndSize>() {
+                  public SubDirectoriesAndSize call() {
+                    return getTotalAndSubDirs(directory);
+                  }
+              })
+          );
         }
         directories.clear();     
         for(final Future<SubDirectoriesAndSize> partialResultFuture : 
           partialResults) {
-          final SubDirectoriesAndSize subDirectoriesAndSize = 
-            partialResultFuture.get(100, TimeUnit.SECONDS);
+          final SubDirectoriesAndSize subDirectoriesAndSize =  partialResultFuture.get(100, TimeUnit.SECONDS);
           directories.addAll(subDirectoriesAndSize.subDirectories);
           total += subDirectoriesAndSize.size;
         }
@@ -85,8 +84,7 @@ public class ConcurrentTotalFileSize {
   public static void main(final String[] args) 
     throws InterruptedException, ExecutionException, TimeoutException {
     final long start = System.nanoTime();
-    final long total = new ConcurrentTotalFileSize()
-      .getTotalSizeOfFilesInDir(new File(args[0]));
+    final long total = new ConcurrentTotalFileSize().getTotalSizeOfFilesInDir(new File("d://"));
     final long end = System.nanoTime();
     System.out.println("Total Size: " + total);
     System.out.println("Time taken: " + (end - start)/1.0e9);
