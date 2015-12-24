@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
  
 public class Client { 
-	private String host = "127.0.0.1";
+	private String host = "10.28.3.13";
 	private int port = 5055;
  
 	/**

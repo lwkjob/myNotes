@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
- 
- 
+
+/**
+ * 服务端每接收一个请求开一个线程
+  */
 public class Server {
 	private ServerSocket serverSocket;
 	private Socket socket;

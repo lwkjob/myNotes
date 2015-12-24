@@ -1,9 +1,9 @@
-package com.lwk.mina.keepAlive;
+package com.lwk.socket.mina.keepAlive;
 
 
-import com.lwk.mina.keepAlive.server.Initialization;
-import com.lwk.mina.keepAlive.server.MinaLongConnServer;
-import com.lwk.mina.keepAlive.server.MinaShortConnServer;
+import com.lwk.socket.mina.keepAlive.server.Initialization;
+import com.lwk.socket.mina.keepAlive.server.MinaLongConnServer;
+import com.lwk.socket.mina.keepAlive.server.MinaShortConnServer;
 
 /**
  * @author lwkjob

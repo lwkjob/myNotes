@@ -1,4 +1,4 @@
-package com.lwk.mina.keepAlive.server;
+package com.lwk.socket.mina.keepAlive.server;
 
 import java.util.HashMap;
 import org.apache.mina.core.session.IoSession;

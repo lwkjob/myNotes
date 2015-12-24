@@ -1,4 +1,4 @@
-package com.lwk.mina.keepAlive.client;
+package com.lwk.socket.mina.keepAlive.client;
 
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;

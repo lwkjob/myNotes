@@ -1,4 +1,4 @@
-package com.lwk.mina.keepAlive.server;
+package com.lwk.socket.mina.keepAlive.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

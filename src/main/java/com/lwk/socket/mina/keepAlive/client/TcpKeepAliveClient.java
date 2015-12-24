@@ -1,4 +1,4 @@
-package com.lwk.mina.keepAlive.client;
+package com.lwk.socket.mina.keepAlive.client;
 
 import java.io.IOException;
 import java.io.InputStream;
