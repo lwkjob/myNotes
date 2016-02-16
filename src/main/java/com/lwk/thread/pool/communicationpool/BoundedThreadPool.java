@@ -9,6 +9,7 @@ import java.util.concurrent.*;
 
 /**
  *
+ * Netflix Hystrix 线程策略库介绍 http://blog.csdn.net/wsscy2004/article/details/50166267
  * 有等待队列边界的线程池
  * 相对于{@link ServerExecutor}使用{@link BoundedThreadPool#newBoundedFixedThreadPool}方法创建线程池
  *
