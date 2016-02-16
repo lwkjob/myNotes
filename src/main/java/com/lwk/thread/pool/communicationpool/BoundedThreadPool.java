@@ -30,7 +30,7 @@ public class BoundedThreadPool {
                          0L,
                          TimeUnit.MILLISECONDS,
                          new LinkedBlockingQueue<Runnable>(capacity),
-                         new ThreadPoolExecutor.DiscardPolicy()
+                         new ThreadPoolExecutor.DiscardPolicy() //丢弃超限的请求
 
                  ) ;
     }
