@@ -6,7 +6,7 @@
 	Boolean isResponseCorrect = Boolean.FALSE;
 	//remenber that we need an id to validate!
 	String captchaId = request.getSession().getId();
-	//retrieve the response
+	//retrieve the request
 	String responsestr = request.getParameter("j_captcha_response");
 	// Call the Service method
 	try {
