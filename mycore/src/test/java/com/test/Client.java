@@ -15,6 +15,7 @@ public class Client {
 	 */
  
 	private void start() {
+
 		new Thread(new Runnable() {
 					@Override
 					public void run() {
