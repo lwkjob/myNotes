@@ -6,13 +6,11 @@ import static com.sun.btrace.BTraceUtils.*;
  
 
 @BTrace
-
 public class TraceScript
 
 {
 
-       @OnMethod(clazz="com.lwk.jvm.btrace.TraceScript", method="test1add1", location=@Location(Kind.RETURN))
-
+       @OnMethod(clazz="com.lwk.jvm.btrace.TraceScript", method="test2add2", location=@Location(Kind.RETURN))
        public static void func(int a, int b, @Return int result)
 
        {

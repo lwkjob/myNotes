@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mycore</module>
-        <module>reflex</module>
     </modules>
 </project>
 

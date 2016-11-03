@@ -3,6 +3,7 @@ package com.lwk.jvm.classloader.loadClass;
 public class B extends A {
 
 	private final static B instance=new B();
+
 	public static B getInstance(){
 		return  instance;
 	}
