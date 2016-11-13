@@ -14,8 +14,12 @@ public class ConsistentHashingWithVirtualNode
     /**
      * 待添加入Hash环的服务器列表
      */
-    private static String[] servers = {"192.168.0.0:111", "192.168.0.1:111", "192.168.0.2:111",
-            "192.168.0.3:111", "192.168.0.4:111"};
+    private static String[] servers = {
+            "192.168.0.0:111",
+            "192.168.0.1:111",
+            "192.168.0.2:111",
+            "192.168.0.3:111",
+            "192.168.0.4:111"};
     
     /**
      * 真实结点列表,考虑到服务器上线、下线的场景，即添加、删除的场景会比较频繁，这里使用LinkedList会更好
@@ -84,6 +88,10 @@ public class ConsistentHashingWithVirtualNode
         // 得到大于该Hash值的所有Map
         SortedMap<Integer, String> subMap = 
                 virtualNodes.tailMap(hash);
+        if(subMap.size()==0){
+            //来访的hash值超出了现有hash的返回,得到小于该hash的所有map
+            subMap=virtualNodes.headMap(hash);
+        }
         // 第一个Key就是顺时针过去离node最近的那个结点
         Integer i = subMap.firstKey();
         // 返回对应的虚拟节点名称，这里字符串稍微截取一下
@@ -93,7 +101,18 @@ public class ConsistentHashingWithVirtualNode
     
     public static void main(String[] args)
     {
-        String[] nodes = {"127.0.0.1:1111", "221.226.0.1:2222", "10.211.0.1:3333"};
+        String[] nodes = {
+                "127.0.0.1:1111",
+                "127.0.0.1:1112",
+                "127.0.0.1:1113",
+                "127.0.0.1:1114",
+                "221.226.0.1:2221",
+                "221.226.0.1:2222",
+                "221.226.0.1:2223",
+                "221.226.0.1:2224",
+                "10.211.0.1:3333"
+        };
+
         for (int i = 0; i < nodes.length; i++)
             System.out.println("[" + nodes[i] + "]的hash值为" + 
                     getHash(nodes[i]) + ", 被路由到结点[" + getServer(nodes[i]) + "]");

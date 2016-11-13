@@ -46,4 +46,9 @@ public class CuratorUtil {
                 .build();
     }
 
+    public static void main(String[] args) {
+        CuratorFramework client= CuratorUtil.createSimple("localhost:2181");
+        client.start();
+    }
+
 }

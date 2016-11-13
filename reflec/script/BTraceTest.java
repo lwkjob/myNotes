@@ -43,8 +43,7 @@ public class BTraceTest {
 
 
          println(strcat("map.toString() = " , str(map)));
-         println(strcat("map.get() = " , get(map,"fuck")));
-         println(strcat(strcat("times:",str(time)), strcat(" , name = " , name)));
+         println(strcat("map.get() =          println(strcat(strcat(\"times:\",str(time)), strcat(\" , name = \" , name)));\n" , get(map,"fuck")));
          jstack();
          println(strcat("delay:" , str(timeMillis() - startTime)));
          println(strcat("return value is:",str(result)));

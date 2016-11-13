@@ -71,6 +71,11 @@ public class ConsistentHashingWithoutVirtualNode
         // 得到大于该Hash值的所有Map
         SortedMap<Integer, String> subMap = 
                 sortedMap.tailMap(hash);
+        if(subMap.size()==0){
+            //来访的hash值超出了服务器节点hash值的最大范围
+            subMap=sortedMap.headMap(hash);
+        }
+
         // 第一个Key就是顺时针过去离node最近的那个结点
         Integer i = subMap.firstKey();
         // 返回对应的服务器名称
@@ -79,7 +84,16 @@ public class ConsistentHashingWithoutVirtualNode
     
     public static void main(String[] args)
     {
-        String[] nodes = {"127.0.0.1:1111", "221.226.0.1:2222", "10.211.0.1:3333"};
+        String[] nodes = {
+                "127.0.0.1:1111",
+                "127.0.0.1:1112",
+                "127.0.0.1:1113",
+                "127.0.0.1:1114",
+                "221.226.0.1:2221",
+                "221.226.0.1:2222",
+                "221.226.0.1:2223",
+                "221.226.0.1:2224",
+                "10.211.0.1:3333"};
         for (int i = 0; i < nodes.length; i++)
             System.out.println("[" + nodes[i] + "]的hash值为" + 
                     getHash(nodes[i]) + ", 被路由到结点[" + getServer(nodes[i]) + "]");
