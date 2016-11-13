@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+    <appender name="DRFOUT" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="logs/brws.log" />
+        <param name="Append" value="true" />
+        <param name="DatePattern" value="yyyy_MM_dd'.'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %-5p %l %x - %m%n" />
+        </layout>
+    </appender>
+    <appender name="ASYNCOUT" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="10" />
+        <appender-ref ref="DRFOUT" />
+    </appender>
+</log4j:configuration>

@@ -26,8 +26,7 @@ public class ConcurrentTotalFileSize {
     final public List<File> subDirectories;
     
     
-    public SubDirectoriesAndSize(
-      final long totalSize, final List<File> theSubDirs) {
+    public SubDirectoriesAndSize( final long totalSize, final List<File> theSubDirs) {
       size = totalSize;
       subDirectories = Collections.unmodifiableList(theSubDirs);
     }
@@ -51,25 +50,24 @@ public class ConcurrentTotalFileSize {
 
   private long getTotalSizeOfFilesInDir(final File file) 
     throws InterruptedException, ExecutionException, TimeoutException {
-    final ExecutorService service = Executors.newFixedThreadPool(100);
+    final ExecutorService service = Executors.newFixedThreadPool(16);
     try {
       long total = 0;
       final List<File> directories = new ArrayList<File>();
       directories.add(file);
       while(!directories.isEmpty()) {
-        final List<Future<SubDirectoriesAndSize>> partialResults = 
-          new ArrayList<Future<SubDirectoriesAndSize>>();
+        final List<Future<SubDirectoriesAndSize>> partialResults =     new ArrayList<Future<SubDirectoriesAndSize>>();
+
         for(final File directory : directories) {
           partialResults.add( service.submit(new Callable<SubDirectoriesAndSize>() {
-                  public SubDirectoriesAndSize call() {
-                    return getTotalAndSubDirs(directory);
-                  }
-              })
-          );
+                                public SubDirectoriesAndSize call() {
+                                  return getTotalAndSubDirs(directory);
+                                }
+                            }));
+
         }
         directories.clear();     
-        for(final Future<SubDirectoriesAndSize> partialResultFuture : 
-          partialResults) {
+        for(final Future<SubDirectoriesAndSize> partialResultFuture :  partialResults) {
           final SubDirectoriesAndSize subDirectoriesAndSize =  partialResultFuture.get(100, TimeUnit.SECONDS);
           directories.addAll(subDirectoriesAndSize.subDirectories);
           total += subDirectoriesAndSize.size;

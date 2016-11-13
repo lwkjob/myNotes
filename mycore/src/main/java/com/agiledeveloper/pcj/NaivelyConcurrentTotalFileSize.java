@@ -19,6 +19,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 直接递归 同步计算结果
+ */
 public class NaivelyConcurrentTotalFileSize {
 	
 	
@@ -31,12 +34,10 @@ public class NaivelyConcurrentTotalFileSize {
     final File[] children = file.listFiles();
     
     if (children != null) {
-      final List<Future<Long>> partialTotalFutures = 
-        new ArrayList<Future<Long>>();      
+      final List<Future<Long>> partialTotalFutures =  new ArrayList<Future<Long>>();
       for(final File child : children) {
-        partialTotalFutures.add(service.submit(new Callable<Long>() { 
-          public Long call() throws InterruptedException, 
-            ExecutionException, TimeoutException { 
+           partialTotalFutures.add(service.submit(new Callable<Long>() {
+          public Long  call() throws InterruptedException,   ExecutionException, TimeoutException {
             return getTotalSizeOfFilesInDir(service, child); 
           }
         }));
@@ -51,7 +52,7 @@ public class NaivelyConcurrentTotalFileSize {
 
   private long getTotalSizeOfFile(final String fileName) 
     throws InterruptedException, ExecutionException, TimeoutException {
-	  final ExecutorService service = Executors.newFixedThreadPool(100);
+	  final ExecutorService service = Executors.newFixedThreadPool(16);
 	  try {
 	    return getTotalSizeOfFilesInDir(service, new File(fileName)); 
 	  } finally {
