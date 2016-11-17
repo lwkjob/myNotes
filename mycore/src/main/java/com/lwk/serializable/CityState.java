@@ -1,6 +1,10 @@
-package com.lwk.serializable;  
-   
-/** 
+package com.lwk.serializable;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+/**
  * Simple class storing city and state names that is NOT Serializable. 
  *  
  * @author Dustin 
@@ -24,7 +28,9 @@ public class CityState
    public String getStateName()  
    {  
       return this.stateName;  
-   }  
+   }
+
+
    
    @Override 
    public String toString()  

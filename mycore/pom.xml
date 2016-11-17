@@ -8,8 +8,6 @@
     <version>0.0.1-SNAPSHOT</version>
 
 
-
-
     <dependencies>
         <!--引用系统本地jar包-->
         <dependency>
@@ -17,13 +15,21 @@
             <artifactId>netty-all</artifactId>
             <version>4.0.36.Final</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/lib/netty-all-4.1.4.Final.jar</systemPath>
+            <systemPath>${project.basedir}/lib/netty-all-4.0.36.Final.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.jasig.cas.client</groupId>
             <artifactId>cas-client-core</artifactId>
             <version>3.1.12</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.esotericsoftware/kryo -->
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
 
         <!--	<dependency>
               <groupId>org.apache.mina</groupId>

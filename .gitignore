@@ -1,4 +1,6 @@
 /.settings
+/logs
+/log
 /.idea
 /target
 *.classpath
