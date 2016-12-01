@@ -11,7 +11,7 @@ public class MyUtil {
   }
 
 
-  // 使用循环实现的二分查找
+  //
   public static <T> int binarySearch(T[] x, T key, Comparator<T> comp) {
       int low = 0;
       int high = x.length - 1;
@@ -32,7 +32,7 @@ public class MyUtil {
   }
 
 
-  // 使用递归实现的二分查找
+  //
   private static<T extends Comparable<T>> int binarySearch(T[] x, int low, int high, T key) {
       if(low <= high) {
         int mid = low + ((high -low) >> 1);

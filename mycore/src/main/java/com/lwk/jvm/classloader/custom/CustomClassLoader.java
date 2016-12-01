@@ -1,4 +1,4 @@
-package com.lwk.jvm.classloader;
+package com.lwk.jvm.classloader.custom;
 
 /**
  * 自定义classloader

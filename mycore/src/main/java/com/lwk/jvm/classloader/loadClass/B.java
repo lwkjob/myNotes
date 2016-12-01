@@ -15,8 +15,8 @@ public class B extends A {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-//		instance.test2();//当前类的引用。会导致加载失败错误 NoClassDefFoundError
-		test2();
+		instance.test2();//当前类的引用。会导致加载失败错误 NoClassDefFoundError
+//		test2();
 	}
 	
 	public void test2(){}
