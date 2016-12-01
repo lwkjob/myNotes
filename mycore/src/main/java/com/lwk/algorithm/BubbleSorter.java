@@ -4,8 +4,6 @@ import java.util.Comparator;
 
 
 /**
-* ц╟ещеепР
-*
 *
 */
 public class BubbleSorter implements Sorter {

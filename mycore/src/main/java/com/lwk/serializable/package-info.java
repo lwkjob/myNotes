@@ -8,5 +8,6 @@
  * 对一个带有不可序列化属性的类进行序列化。
  * 当你要在一个需要序列化的类中使用不可序列化的类型，
  * 并且这些类型不能被修改时，这是一个有用的技术
+ * 通过实现Externalizable 接口，实现writeExternal（）和readExternal（）方法，然后再自定义序列话对象。
  */
 package com.lwk.serializable;

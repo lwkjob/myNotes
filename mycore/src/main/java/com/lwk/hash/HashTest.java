@@ -9,13 +9,13 @@ import java.util.Map;
 public class HashTest {
 
     public static void main(String[] args) {
-        Map<String, Object> objectObjectHashMap = new HashMap<>();
+        Map<Object, Object> objectObjectHashMap = new HashMap<>();
         for (int i=1 ;i<100;i++){
 
             TestEntry testEntry=new TestEntry();
-            testEntry.setAge(13432424+i);
-            testEntry.setName("242442424");
-            objectObjectHashMap.put("sfsf"+i,testEntry);
+            testEntry.setAge(13432424);
+            testEntry.setName("242442424"+i);
+            objectObjectHashMap.put(testEntry,testEntry);
         }
 
 

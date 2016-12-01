@@ -11,8 +11,8 @@ public class MyUtil {
   }
 
 
-  //
-  public static <T> int binarySearch(T[] x, T key, Comparator<T> comp) {
+
+  public static <T> int binarySearch2(T[] x, T key, Comparator<T> comp) {
       int low = 0;
       int high = x.length - 1;
       while (low <= high) {
@@ -32,7 +32,6 @@ public class MyUtil {
   }
 
 
-  //
   private static<T extends Comparable<T>> int binarySearch(T[] x, int low, int high, T key) {
       if(low <= high) {
         int mid = low + ((high -low) >> 1);

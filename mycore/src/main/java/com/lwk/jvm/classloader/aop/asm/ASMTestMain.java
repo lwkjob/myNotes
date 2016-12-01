@@ -38,7 +38,7 @@ public class ASMTestMain {
 		
 		ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
 		ASMClassModifyAdpter modifyAdpter = new ASMClassModifyAdpter(classWriter);
-		classReader.accept(modifyAdpter, ClassReader.SKIP_DEBUG);
+//		classReader.accept(modifyAdpter, ClassReader.SKIP_DEBUG);
 		//这里输出的字节码，可以用javap命令来查看哦
         //byte []bytes = classWriter.toByteArray();
 		//new FileOutputStream("d:/ForASMTestClass.class").write(bytes);

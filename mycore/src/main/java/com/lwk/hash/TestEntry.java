@@ -40,6 +40,6 @@ public class TestEntry {
     public int hashCode() {
         int result = getAge();
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        return result;
+        return getAge();
     }
 }
