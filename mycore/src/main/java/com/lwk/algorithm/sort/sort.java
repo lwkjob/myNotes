@@ -1,4 +1,4 @@
-package com.lwk.algorithm;
+package com.lwk.algorithm.sort;
 
 public class sort {
 	public static void main(String args[]) {

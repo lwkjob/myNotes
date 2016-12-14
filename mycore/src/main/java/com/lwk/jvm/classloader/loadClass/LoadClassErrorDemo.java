@@ -8,6 +8,8 @@ package com.lwk.jvm.classloader.loadClass;
  */
 public class LoadClassErrorDemo {
 	public static void main(String[] args) {
+
+
 		new Thread(){
 			public void run() {
 				try {
@@ -18,6 +20,9 @@ public class LoadClassErrorDemo {
 				B.getInstance().test2();
 			};
 		}.start();
+
+
+
 		new Thread(){
 			public void run() {
 				try {

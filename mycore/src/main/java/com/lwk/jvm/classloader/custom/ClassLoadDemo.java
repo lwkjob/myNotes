@@ -14,7 +14,10 @@ public class ClassLoadDemo{
                     String clazzName = name.substring(name.lastIndexOf(".") + 1) + ".class";
 
                     InputStream is = getClass().getResourceAsStream(clazzName);
+                    System.out.println("加载:"+name);
                     if (is == null) {
+                        //加载当前类的相关类
+
                         return super.loadClass(name);
                     }
                     byte[] b = new byte[is.available()];
@@ -28,8 +31,9 @@ public class ClassLoadDemo{
 
         String currentClass = "com.lwk.jvm.classloader.custom.ClassLoadDemo";
         Class<?> clazz = clazzLoader.loadClass(currentClass);
+        System.out.println("加载完成");
         Object obj = clazz.newInstance();
-
+        System.out.println("实例化完成");
         System.out.println(obj.getClass());
         System.out.println(obj instanceof com.lwk.jvm.classloader.custom.ClassLoadDemo);
     }

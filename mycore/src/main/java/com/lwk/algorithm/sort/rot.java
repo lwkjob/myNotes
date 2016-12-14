@@ -1,4 +1,4 @@
-package com.lwk.algorithm;
+package com.lwk.algorithm.sort;
 
 public class rot{
 	public static void main(String args[]){

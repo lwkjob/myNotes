@@ -15,7 +15,7 @@
             <artifactId>netty-all</artifactId>
             <version>4.0.36.Final</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/netty-all-4.0.36.Final.jar</systemPath>
+            <systemPath>${project.basedir}/lib/netty-all-4.1.4.Final.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.jasig.cas.client</groupId>

@@ -1,4 +1,4 @@
-package com.lwk.algorithm;
+package com.lwk.algorithm.sort;
 
 import java.util.Comparator;
 
