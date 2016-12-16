@@ -2,7 +2,8 @@ public class Sample {
     private Sample instance;
 
     public void setSample(Object instance) {
-     System.out.println("setSample Thread.currentThread().getContextClassLoader() "+Thread.currentThread().getContextClassLoader());
+       System.out.println("setSample Thread.currentThread().getContextClassLoader() "+Thread.currentThread().getContextClassLoader());
+       System.out.println("Sample this.getClass().getClassLoader() "+this.getClass().getClassLoader());
         this.instance = (Sample) instance;
     }
  }

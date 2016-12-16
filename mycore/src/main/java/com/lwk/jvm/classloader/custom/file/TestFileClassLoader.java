@@ -9,17 +9,19 @@ import java.lang.reflect.Method;
  * Created by lwk on 2016/12/14.
  */
 public class TestFileClassLoader {
-    public void testClassIdentity(String classDataRootPath) throws Exception {
 
+
+
+    public void testClassIdentity(String classDataRootPath) throws Exception {
         FileSystemClassLoader fscl1 = new FileSystemClassLoader(classDataRootPath  );
         FileSystemClassLoader fscl2 = new FileSystemClassLoader(classDataRootPath );
         String className = "com.lwk.jvm.classloader.custom.file.Sample";
         Class<?> class1 = fscl1.loadClass(className);
         Object obj1 = class1.newInstance();
-        System.out.println(obj1.getClass().getClassLoader());
+        System.out.println("obj1.getClass().getClassLoader() "+obj1.getClass().getClassLoader());
         Class<?> class2 = fscl2.loadClass(className);
         Object obj2 = class2.newInstance();
-        System.out.println(obj2.getClass().getClassLoader());
+        System.out.println("obj2.getClass().getClassLoader() "+obj2.getClass().getClassLoader());
         System.out.println(obj1.equals(obj2));
         System.out.println("Thread.currentThread().getContextClassLoader() "+Thread.currentThread().getContextClassLoader());
         Method setSampleMethod = class1.getMethod("setSample", java.lang.Object.class);

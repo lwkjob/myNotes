@@ -1,7 +1,8 @@
 package com.lwk.jvm.classloader.loadClass;
 
 /**
- * 
+ * http://blog.csdn.net/zhoudaxia/article/details/35897057
+ *
  * 类加载的时候,static代码引用了类的引用会报错,NoClassDefFoundError
  * @author lwkjob
  *
